@@ -1,0 +1,47 @@
+import time
+import os
+import random
+import sys
+
+def scrollTxt(text):
+  for char in text:
+    sys.stdout.write(char)
+    sys.stdout.flush()
+    time.sleep(0.05)
+
+os.system('cls' if os.name == 'nt' else 'clear')
+  NumberToGuess = random.randrange(1, 16)
+  NumberOfGuesses = 0
+  while NumberOfGuesses < 6:
+    scrollTxt("\nGuess a number between 1 and 15: ")
+    guess = input("")
+    isallowed = guess.isnumeric()
+    while isallowed == False:
+      scrollTxt("Please write a number between 1 and 15: ")
+      guess=input("")
+      isallowed = guess.isnumeric()
+    NumberOfGuesses += 1
+    if int(guess) < NumberToGuess:
+      if NumberOfGuesses != 5:
+        scrollTxt("The number is higher.")
+    if int(guess) > NumberToGuess:
+      if NumberOfGuesses != 5:
+        scrollTxt("The number is lower.")
+    if int(guess) == NumberToGuess and NumberOfGuesses != 5:
+      os.system('cls' if os.name == 'nt' else 'clear')
+      scrollTxt("You guessed the number in " + str(NumberOfGuesses) + " tries!")
+      break
+  if NumberOfGuesses == 5:
+      os.system('cls' if os.name == 'nt' else 'clear')
+      scrollTxt("Sorry, you ran out of tries.")
+  time.sleep(1)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Play again? Y / N: ")
+  PlayAgain = input("")
+  while PlayAgain != "Y" and PlayAgain != "N":
+    scrollTxt("Please enter a valid response: ")
+    PlayAgain = input("")
+  if PlayAgain == "Y":
+    guessinggame()
+  if PlayAgain == "N":
+    lobby()
