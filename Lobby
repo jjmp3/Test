@@ -1,3 +1,14 @@
+import time
+import os
+import random
+import sys
+
+def scrollTxt(text):
+  for char in text:
+    sys.stdout.write(char)
+    sys.stdout.flush()
+    time.sleep(0.05)
+
 time.sleep(1)
   os.system('cls' if os.name == 'nt' else 'clear')
   scrollTxt("Hello!")
