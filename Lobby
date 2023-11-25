@@ -1,0 +1,23 @@
+time.sleep(1)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Hello!")
+  time.sleep(1)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("What would you like to play?\n")
+  scrollTxt("\n1. Rock Paper Scissors")
+  scrollTxt("\n2. Magic 8 ball")
+  scrollTxt("\n3. Dice Roll Simulator")
+  scrollTxt("\n4. Guessing Game\n")
+  scrollTxt("\nPlease enter a number: ")
+  GameChoiceNumber = input("")
+  while GameChoiceNumber != "1" and GameChoiceNumber != "2" and GameChoiceNumber != "3" and GameChoiceNumber != "4":
+    scrollTxt("Please enter a valid number: ")
+    GameChoiceNumber = input("")
+  if GameChoiceNumber == "1":
+    rockpaperscissors()
+  if GameChoiceNumber == "2":
+    magic8ball()
+  if GameChoiceNumber == "3":
+    dicerollsimulator()
+  if GameChoiceNumber == "4":
+    guessinggame()
