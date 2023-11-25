@@ -1,0 +1,123 @@
+import time
+import os
+import random
+import sys
+def scrollTxt(text):
+  for char in text:
+    sys.stdout.write(char)
+    sys.stdout.flush()
+    time.sleep(0.05)
+os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Rock paper scissors ultimate tournament")
+  time.sleep(1.5)
+  print("")
+  scrollTxt("Would you like to play solo or with a partner? ")
+  SoloOrPartner = input("")
+  while SoloOrPartner != "solo" and SoloOrPartner != "with a partner":
+    os.system('cls' if os.name == 'nt' else 'clear')
+    scrollTxt("Please check your spelling and try again: ")
+    SoloOrPartner = input("")
+  if SoloOrPartner == "solo":
+    os.system('cls' if os.name == 'nt' else 'clear')
+    time.sleep(1)
+    scrollTxt("Do you choose rock, paper, or scissors? ")
+    PlayersChoice = input("")
+    while PlayersChoice != "rock" and PlayersChoice != "paper" and PlayersChoice != "scissors":
+      os.system('cls' if os.name == 'nt' else 'clear')
+      scrollTxt("Please check your spelling and try again: ")
+      PlayersChoice = input("")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    ComputerOptions = ["rock", "paper", "scissors"]
+    ComputerChoice = (random.choice(ComputerOptions))
+    scrollTxt("Generating computer response...")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("3")
+    time.sleep(1)
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("2")
+    time.sleep(1)
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("1")
+    time.sleep(1)
+    os.system('cls' if os.name == 'nt' else 'clear')
+    if PlayersChoice == "rock" and ComputerChoice == "rock":
+      scrollTxt("It's a tie!")
+    if PlayersChoice == "paper" and ComputerChoice == "paper":
+      scrollTxt("It's a tie!")
+    if PlayersChoice == "scissors" and ComputerChoice == "scissors":
+      scrollTxt("It's a tie!")
+    if PlayersChoice == "rock" and ComputerChoice == "scissors":
+      scrollTxt("You win!")
+    if PlayersChoice == "paper" and ComputerChoice == "rock":
+      scrollTxt("You win!")
+    if PlayersChoice == "scissors" and ComputerChoice == "paper":
+      scrollTxt("You win!")
+    if PlayersChoice == "rock" and ComputerChoice == "paper":
+      scrollTxt("You lose")
+    if PlayersChoice == "paper" and ComputerChoice == "scissors":
+      scrollTxt("You lose")
+    if PlayersChoice == "scissors" and ComputerChoice == "rock":
+      scrollTxt("You lose")
+  if SoloOrPartner == "with a partner":
+    os.system('cls' if os.name == 'nt' else 'clear')
+    time.sleep(1)
+    scrollTxt("Please enter player 1's name: ")
+    FirstPlayersName = input("")
+    time.sleep(1)
+    scrollTxt("Please enter player 2's name: ")
+    SecondPlayersName = input("")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    scrollTxt(FirstPlayersName + ", do you choose rock, paper or scissors? ")
+    FirstPlayersChoice = input("")
+    while FirstPlayersChoice != "rock" and FirstPlayersChoice != "paper" and     FirstPlayersChoice != "scissors":
+      os.system('cls' if os.name == 'nt' else 'clear')
+      scrollTxt("Please check your spelling and try again: ")
+      FirstPlayersChoice = input("")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    scrollTxt(SecondPlayersName + ", do you choose, rock, paper or scissors? ")
+    SecondPlayersChoice = input("")
+    while SecondPlayersChoice != "rock" and SecondPlayersChoice != "paper" and SecondPlayersChoice != "scissors":
+      os.system('cls' if os.name == 'nt' else 'clear')
+      scrollTxt("Please check your spelling and try again: ")
+      SecondPlayersChoice = input("")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    scrollTxt("Generating responses...")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("3")
+    time.sleep(1)
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("2")
+    time.sleep(1)
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("1")
+    time.sleep(1)
+    os.system('cls' if os.name == 'nt' else 'clear')
+    if FirstPlayersChoice == "rock" and SecondPlayersChoice == "rock":
+      scrollTxt("It's a tie!")
+    if FirstPlayersChoice == "paper" and SecondPlayersChoice == "paper":
+      scrollTxt("It's a tie!")
+    if FirstPlayersChoice == "scissors" and SecondPlayersChoice == "scissors":
+      scrollTxt("It's a tie!")
+    if FirstPlayersChoice == "rock" and SecondPlayersChoice == "scissors":
+      scrollTxt(FirstPlayersName + " wins!")
+    if FirstPlayersChoice == "paper" and SecondPlayersChoice == "rock":
+      scrollTxt(FirstPlayersName + " wins!")
+    if FirstPlayersChoice == "scissors" and SecondPlayersChoice == "paper":
+      scrollTxt(FirstPlayersName + " wins!")
+    if FirstPlayersChoice == "rock" and SecondPlayersChoice == "paper":
+      scrollTxt(SecondPlayersName + " wins!")
+    if FirstPlayersChoice == "paper" and SecondPlayersChoice == "scissors":
+      scrollTxt(SecondPlayersName + " wins!")
+    if FirstPlayersChoice == "scissors" and SecondPlayersChoice == "rock":
+      scrollTxt(SecondPlayersName + " wins!")
+  time.sleep(1)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Play again? Y / N: ")
+  PlayAgain = input("")
+  while PlayAgain != "Y" and PlayAgain != "N":
+    scrollTxt("Please enter a valid response: ")
+    PlayAgain = input("")
+  if PlayAgain == "Y":
+    rockpaperscissors()
+  if PlayAgain == "N":
+    lobby()
