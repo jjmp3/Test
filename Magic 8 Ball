@@ -1,0 +1,41 @@
+import time
+import os
+import random
+import sys
+
+def scrollTxt(text):
+  for char in text:
+    sys.stdout.write(char)
+    sys.stdout.flush()
+    time.sleep(0.05)
+
+os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Welcome to the magic 8 ball!")
+  time.sleep(1)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Please enter your question: ")
+  UsersQuestion = input("")
+  os.system('cls' if os.name == 'nt' else 'clear')
+  PossibleAnswers = ["It is certain", "It is decidely so", "Without a doubt", "Yes definitely", "You may rely on it", "As I see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes", "Reply hazy try again", "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"]
+  ComputerAnswer = (random.choice(PossibleAnswers))
+  time.sleep(1)
+  scrollTxt("Your question: " + UsersQuestion)
+  time.sleep(1.5)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Generating computer response...")
+  time.sleep(1)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt(ComputerAnswer)
+  time.sleep(2)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  time.sleep(1)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Play again? Y / N: ")
+  PlayAgain = input("")
+  while PlayAgain != "Y" and PlayAgain != "N":
+    scrollTxt("Please enter a valid response: ")
+    PlayAgain = input("")
+  if PlayAgain == "Y":
+    magic8ball()
+  if PlayAgain == "N":
+    lobby()
