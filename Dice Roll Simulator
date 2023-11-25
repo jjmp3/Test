@@ -1,0 +1,47 @@
+import time
+import os
+import random
+import sys
+
+def scrollTxt(text):
+  for char in text:
+    sys.stdout.write(char)
+    sys.stdout.flush()
+    time.sleep(0.05)
+
+os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Welcome to the dice roll simulator!")
+  time.sleep(1)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Would you like to roll 1, 2, 3, 4, or 5 dies? ")
+  NumberOfDice = input("")
+  while NumberOfDice != "1" and NumberOfDice != "2" and NumberOfDice != "3" and NumberOfDice != "4" and NumberOfDice != "5":
+    scrollTxt("Please enter a valild number of dice: ")
+    NumberOfDice = input("")
+  if NumberOfDice == "1":
+    DiceRollNumber = str(random.randrange(1, 7))
+    scrollTxt("Your number is " + DiceRollNumber)
+  if NumberOfDice == "2":
+    DiceRollNumber = str(random.randrange(2, 13))
+    scrollTxt("Your number is " + DiceRollNumber)
+  if NumberOfDice == "3":
+    DiceRollNumber = str(random.randrange(3, 19))
+  if NumberOfDice == "4":
+    DiceRollNumber = str(random.randrange(4, 25))
+    scrollTxt("Your number is " + DiceRollNumber)
+  if NumberOfDice == "5":
+    DiceRollNumber = str(random.randrange(5, 31))
+    scrollTxt("Your number is " + DiceRollNumber)
+    time.sleep(3)
+    os.system('cls' if os.name == 'nt' else 'clear')
+  time.sleep(1)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  scrollTxt("Play again? Y / N: ")
+  PlayAgain = input("")
+  while PlayAgain != "Y" and PlayAgain != "N":
+    scrollTxt("Please enter a valid response: ")
+    PlayAgain = input("")
+  if PlayAgain == "Y":
+    dicerollsimulator()
+  if PlayAgain == "N":
+    lobby()
